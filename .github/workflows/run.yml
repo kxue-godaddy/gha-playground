@@ -1,6 +1,7 @@
 name: Run
 on:
   workflow_dispatch:
+    inputs:
       message:
         description: ECS cluster
         type: string
