@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Prepare
-        run: echo "VAR1=echo \"${{ inputs.message }}\"" >> $GITHUB_ENV
+        run: |
+          msg="echo \"${{ inputs.message }}\""
+          echo "::add-mask::$msg"
+          echo "VAR1=$msg" >> $GITHUB_ENV
       - name: Run
         run: ${{ env.VAR1 }}
