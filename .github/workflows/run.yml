@@ -1,0 +1,15 @@
+name: Run
+on:
+  workflow_dispatch:
+      message:
+        description: ECS cluster
+        type: string
+        default: "hello world"
+job:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Prepare
+        run: echo "VAR1=echo \"${{ inputs.message }}\"" >> $GITHUB_ENV
+      - name: Run
+        run: ${{ env.VAR1 }}
