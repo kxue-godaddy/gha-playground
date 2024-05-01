@@ -5,7 +5,7 @@ on:
         description: ECS cluster
         type: string
         default: "hello world"
-job:
+jobs:
   run:
     runs-on: ubuntu-latest
     steps:
